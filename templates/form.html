@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+      
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- Page-specific content -->
+        <!-- Questo form ci servirà per creare un nuovo oggetto di tipo persona
+colleghiamo il form alla rotta "/submit" e ad una chiamata di tipo post -->
+		<form class="col s12" action="/submit" method = "POST">
+<div class="input-field col s6">
+				<input type = "text" name = "nome" id = "nome" class="validate">
+				<label for="nome">Inserisci un nome:</label>
+			</div>
+			<div class="input-field col s6">
+				<input type = "text" name = "cognome" id = "cognome" class="validate">
+				<label for="cognome">Inserisci il cognome:</label>
+			</div>
+			<div class="input-field col s6">
+				<input type = "text" name = "stipendio" id = "stipendio" class="validate">
+				<label for="url">Inserisci lo stipendio:</label>
+			</div>
+			<div class="input-field col s6">
+				<input type = "text" name = "url" id = "url" class="validate">
+				<label for="url">Inserisci la foto:</label>
+			</div>			
+			<div class="input-field col s6">
+				<input class="btn waves-effect waves-light" type = "submit" value = "Invia">
+			</div>		
+		</form>
+		
+		<form class="col s12" action = "/lista" method = "GET">
+			<div class="input-field col s6">
+				<input class="btn waves-effect waves-light" type = "submit" value = "visualizzaPersone">				
+			</div>
+		</form>
+    </div>
+</body>
+</html>

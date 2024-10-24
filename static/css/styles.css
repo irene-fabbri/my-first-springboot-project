@@ -1,0 +1,22 @@
+/* body { */
+/* 	background-image: url("https://savonaeventi.com/wp-content/uploads/2022/10/Acquerelli-fai-da-te.jpg"); */
+/* } */
+
+.card-image img{
+	height: 25vw;
+	width: 25vw;
+	object-fit:cover;
+}
+
+.card-content{
+	height: 15vw;
+}
+
+td img {
+	height: 5vw;
+	object-fit:cover;
+}
+
+.waves-effect input[type="submit"] {
+	color: white;
+}

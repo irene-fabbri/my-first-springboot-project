@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- Page-specific content -->
+        <h1>Prima App SpringBoot</h1>
+		<h3>Dato passato con Java: <span th:text= "${nome}"></span></h3>
+    </div>
+</body>
+</html>

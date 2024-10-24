@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+      
+<head>
+    <title>Page Title</title>
+    
+</head>
+<body>
+<div class="container" layout:fragment="content">
+
+	<!-- Creiamo una tabella che a partire dai dati che abbiamo passato dal controller
+	per ogni dipendente presenta nella crea una una riga che contiene
+	una cella per il nome, una cella per il cognome, e una cella per l'immagine -->
+	
+	<!-- Abbiamo creato un form che risponde all rotta /process con il metodo POST  -->
+	 <form action = "/process" method = "POST">
+	<table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Cognome</th>
+              <th>Immagine</th>
+              <th>Seleziona</th>
+          </tr>
+        </thead>
+
+        <tbody>
+       
+          <tr th:each = "item:${lista}">
+            <td th:text = "${item.nome}"></td>
+            <td th:text = "${item.cognome}"></td>
+            <td><img th:src = "${item.url}"></td>
+            <!-- 
+            Aggiungiamo un input di tipo numerico che ritorna il numero di dipedenti selezionati (il valore è impostato
+            di default a 0)
+            un input di tipo hidden (nascosto) con il nome del dipendente
+            
+             -->
+            <td>
+            	<div class="input-field col s6">
+					<input type = "number" name = "num" value = "0" min = 0 class="validate">
+    	        	<input type = "hidden" name = "nome" th:value = "${item.nome}" >
+				</div>
+            	          
+            </td>
+          </tr>         
+        </tbody>
+      </table>
+      <!-- 
+      Fuori della tabella creiamo un bottone di tipo submit
+      che farà partire il form      
+       -->
+			<div class="input-field col s6">
+				<input class="btn waves-effect waves-light" type = "submit" value = "Invia">
+			</div>      
+		</form>
+      <hr>
+      <h1>Card con i dipendenti</h1>
+      <!-- Creato per ogni elemento della lista una card
+      questa card contiene un'immagine il nome del dipendente
+      il cognome del dipedente -->
+      <div class="row">
+	  	<div th:each = "item:${lista}" class="card col s3">
+	    	<div class="card-image waves-effect waves-block waves-light form-persone">
+	      		<img class="activator" th:src = "${item.url}">
+	    	</div>
+	    	<div class="card-content">
+	    	  	<span class="card-title activator grey-text text-darken-4" th:text = "${item.cognome}"><i class="material-icons right">more_vert</i></span>
+		    </div>
+	    	<div class="card-reveal">
+	      		<span class="card-title grey-text text-darken-4" th:text = "${item.cognome}" ><i class="material-icons right">close</i></span>
+	      		<p th:text = "${item.nome}"></p>
+	    	</div>
+	  	</div>
+     </div>      
+	</div>
+</body>
+</html>

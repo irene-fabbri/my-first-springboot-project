@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>Blog</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- Page-specific content -->
+        <h1>Blog page</h1>
+		<h3 th:each = "item: ${lista}"><span th:text = "${item}"></span></li>
+        
+    </div>
+</body>
+</html>

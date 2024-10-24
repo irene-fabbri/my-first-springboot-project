@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>Contatti</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- Page-specific content -->
+        <h1>Pagina contatti</h1>
+		<h3> Oggi è:  <span th:text = "${giorno}"></span></h3>    
+    </div>
+</body>
+</html>
